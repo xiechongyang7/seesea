@@ -21,6 +21,7 @@ import com.seesea.seeseagateway.mapper.GatewayMapper;
 import com.seesea.seeseagateway.service.ICheckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
@@ -31,6 +32,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -40,6 +42,7 @@ import java.util.Map;
  * @Author 谢重阳
  */
 @Component
+@RefreshScope
 public class PreFilter extends ZuulFilter {
 
     @Value("${MD5Key}")
